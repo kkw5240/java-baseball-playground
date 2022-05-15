@@ -8,14 +8,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class StringTest {
     @Test
-    @DisplayName("replace Test : abc -> adc")
+    @DisplayName("replace Test : abc → adc")
     void replace() {
         String actual = "abc".replace("b", "d");
         assertThat(actual).isEqualTo("adc");
     }
 
     @Test
-    @DisplayName("split & contains Test : \"1,2\" -> [\"1\", \"2\"]")
+    @DisplayName("split & contains Test : \"1,2\" → [\"1\", \"2\"]")
     void contains() {
         String[] actual = "1,2".split(",");
 
@@ -24,7 +24,7 @@ public class StringTest {
     }
 
     @Test
-    @DisplayName("substring Test : (1,2) -> 1,2")
+    @DisplayName("substring Test : (1,2) → 1,2")
     void substring() {
         String actual = "(1,2)".substring(1, 4);
 
@@ -32,7 +32,7 @@ public class StringTest {
     }
 
     @Test
-    @DisplayName("charAt Test : abc -> b")
+    @DisplayName("charAt Test : abc → b, Index out of range")
     void charAt() {
         String given = "abc";
 
@@ -43,6 +43,6 @@ public class StringTest {
 
         }).isInstanceOf(
                 StringIndexOutOfBoundsException.class
-        );
+        ).hasMessageContaining("String index out of range");
     }
 }
