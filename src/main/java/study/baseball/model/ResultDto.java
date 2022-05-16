@@ -1,4 +1,4 @@
-package study.baseball.model.dto;
+package study.baseball.model;
 
 public class ResultDto {
     private final Integer ballCount;
@@ -29,6 +29,10 @@ public class ResultDto {
 
     @Override
     public String toString() {
+        if (ballCount == 0 && strikeCount == 0) {
+            return "낫싱";
+        }
+
         return printBallCount() +
                 printSpace() +
                 printStrikeCount();
@@ -58,13 +62,5 @@ public class ResultDto {
     private ResultDto(Integer ballCount, Integer strikeCount) {
         this.ballCount = ballCount;
         this.strikeCount = strikeCount;
-    }
-
-    public Integer getBallCount() {
-        return ballCount;
-    }
-
-    public Integer getStrikeCount() {
-        return strikeCount;
     }
 }
