@@ -1,6 +1,6 @@
 package study.baseball.service;
 
-import study.baseball.model.dto.ResultDto;
+import study.baseball.model.ResultDto;
 
 import java.util.Arrays;
 import java.util.HashSet;
