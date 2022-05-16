@@ -1,18 +1,40 @@
 package study.baseball.service;
 
+import study.baseball.model.dto.ResultDto;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class NumberBaseball {
-    public String judge(int[] givenNumbers, int[] inputNumbers) {
-        int result = 0;
+    public String judge(Integer[] givenNumbers, int[] inputNumbers) {
+        int ballCount = 0;
+        int strikeCount = 0;
+
         for (int i = 0; i < givenNumbers.length; i++) {
-            result += strike(givenNumbers[i], inputNumbers[i]);
+            if (isStrike(givenNumbers[i], inputNumbers[i])) {
+                strikeCount++;
+                continue;
+            }
+
+            if (isBall(givenNumbers, inputNumbers[i])) {
+                ballCount++;
+            }
         }
-        return result + "스트라이크";
+
+        return ResultDto.builder()
+                .ballCount(ballCount)
+                .strikeCount(strikeCount)
+                .build()
+                .toString();
     }
 
-    private int strike(int givenNumber, int inputNumber) {
-        if (givenNumber == inputNumber) {
-            return 1;
-        }
-        return 0;
+    private Boolean isBall(Integer[] givenNumbers, int inputNumber) {
+        Set<Integer> givenNumberSet = new HashSet<>(Arrays.asList(givenNumbers));
+        return givenNumberSet.contains(inputNumber);
+    }
+
+    private Boolean isStrike(int givenNumber, int inputNumber) {
+        return givenNumber == inputNumber;
     }
 }
