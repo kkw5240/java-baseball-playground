@@ -1,13 +1,18 @@
 package study.baseball.service;
 
-import study.baseball.model.dto.ResultDto;
+import study.baseball.model.ResultDto;
+import study.baseball.view.InputView;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class NumberBaseball {
-    public String judge(Integer[] givenNumbers, int[] inputNumbers) {
+
+    private Boolean isPlaying;
+
+    public String judge(Integer[] givenNumbers, Integer[] inputNumbers) {
         int ballCount = 0;
         int strikeCount = 0;
 
@@ -37,4 +42,20 @@ public class NumberBaseball {
     private Boolean isStrike(int givenNumber, int inputNumber) {
         return givenNumber == inputNumber;
     }
+
+    public boolean isPlaying() {
+        return this.isPlaying;
+    }
+
+    public void play() {
+        this.isPlaying = true;
+
+        InputView inputView = new InputView();
+        Integer[] inputNumbers = inputView.getInningData();
+
+        this.judge(new Integer[]{7, 1, 3}, inputNumbers);
+
+        this.isPlaying = false;
+    }
+
 }

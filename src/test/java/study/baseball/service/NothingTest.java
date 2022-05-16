@@ -10,7 +10,7 @@ public class NothingTest {
         NumberBaseball numberBaseball = new NumberBaseball();
 
         Integer[] givenNumbers = new Integer[]{7, 1, 3};
-        int[] inputNumbers = new int[]{4, 5, 6};
+        Integer[] inputNumbers = new Integer[]{4, 5, 6};
 
         assertEquals("낫싱", numberBaseball.judge(givenNumbers, inputNumbers));
     }
