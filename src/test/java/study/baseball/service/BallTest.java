@@ -10,7 +10,7 @@ public class BallTest {
         NumberBaseball numberBaseball = new NumberBaseball();
 
         Integer[] givenNumbers = new Integer[]{ 7, 1, 3 };
-        int[] inputNumbers = new int[]{ 1, 2, 4 };
+        Integer[] inputNumbers = new Integer[]{ 1, 2, 4 };
 
         assertEquals("1볼", numberBaseball.judge(givenNumbers, inputNumbers));
     }
@@ -20,7 +20,7 @@ public class BallTest {
         NumberBaseball numberBaseball = new NumberBaseball();
 
         Integer[] givenNumbers = new Integer[]{ 7, 1, 3 };
-        int[] inputNumbers = new int[]{ 1, 2, 7 };
+        Integer[] inputNumbers = new Integer[]{ 1, 2, 7 };
 
         assertEquals("2볼", numberBaseball.judge(givenNumbers, inputNumbers));
     }
@@ -30,7 +30,7 @@ public class BallTest {
         NumberBaseball numberBaseball = new NumberBaseball();
 
         Integer[] givenNumbers = new Integer[]{ 7, 1, 3 };
-        int[] inputNumbers = new int[]{ 1, 2, 3 };
+        Integer[] inputNumbers = new Integer[]{ 1, 2, 3 };
 
         assertEquals("1볼 1스트라이크", numberBaseball.judge(givenNumbers, inputNumbers));
     }
@@ -40,7 +40,7 @@ public class BallTest {
         NumberBaseball numberBaseball = new NumberBaseball();
 
         Integer[] givenNumbers = new Integer[]{ 7, 1, 3 };
-        int[] inputNumbers = new int[]{ 3, 1, 7 };
+        Integer[] inputNumbers = new Integer[]{ 3, 1, 7 };
 
         assertEquals("2볼 1스트라이크", numberBaseball.judge(givenNumbers, inputNumbers));
     }

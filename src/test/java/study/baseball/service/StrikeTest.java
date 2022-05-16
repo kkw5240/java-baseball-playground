@@ -10,7 +10,7 @@ public class StrikeTest {
         NumberBaseball numberBaseball = new NumberBaseball();
 
         Integer[] givenNumbers = new Integer[]{ 7, 1, 3 };
-        int[] inputNumbers = new int[]{ 7, 1, 3 };
+        Integer[] inputNumbers = new Integer[]{ 7, 1, 3 };
 
         assertEquals("3스트라이크", numberBaseball.judge(givenNumbers, inputNumbers));
     }
@@ -20,7 +20,7 @@ public class StrikeTest {
         NumberBaseball numberBaseball = new NumberBaseball();
 
         Integer[] givenNumbers = new Integer[]{ 7, 1, 3 };
-        int[] inputNumbers = new int[]{ 7, 5, 3 };
+        Integer[] inputNumbers = new Integer[]{ 7, 5, 3 };
 
         assertEquals("2스트라이크", numberBaseball.judge(givenNumbers, inputNumbers));
     }
@@ -30,7 +30,7 @@ public class StrikeTest {
         NumberBaseball numberBaseball = new NumberBaseball();
 
         Integer[] givenNumbers = new Integer[]{ 7, 1, 3 };
-        int[] inputNumbers = new int[]{ 9, 5, 3 };
+        Integer[] inputNumbers = new Integer[]{ 9, 5, 3 };
 
         assertEquals("1스트라이크", numberBaseball.judge(givenNumbers, inputNumbers));
     }

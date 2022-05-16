@@ -1,5 +1,6 @@
 package study.baseball.service;
 
+import study.baseball.model.InningData;
 import study.baseball.model.ResultDto;
 
 import java.util.Arrays;
@@ -7,7 +8,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class NumberBaseball {
-    public String judge(Integer[] givenNumbers, int[] inputNumbers) {
+    public String judge(InningData inningData) {
+        return this.judge(inningData.getHomeData(), inningData.getAwayData());
+    }
+    public String judge(Integer[] givenNumbers, Integer[] inputNumbers) {
         int ballCount = 0;
         int strikeCount = 0;
 
