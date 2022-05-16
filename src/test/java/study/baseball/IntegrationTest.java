@@ -1,2 +1,4 @@
-package study.baseball;public class IntegrationTest {
+package study.baseball;
+
+public class IntegrationTest {
 }
