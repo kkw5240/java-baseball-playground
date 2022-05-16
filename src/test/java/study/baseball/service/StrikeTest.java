@@ -9,7 +9,7 @@ public class StrikeTest {
     void threeStrike() {
         NumberBaseball numberBaseball = new NumberBaseball();
 
-        int[] givenNumbers = new int[]{ 7, 1, 3 };
+        Integer[] givenNumbers = new Integer[]{ 7, 1, 3 };
         int[] inputNumbers = new int[]{ 7, 1, 3 };
 
         assertEquals("3스트라이크", numberBaseball.judge(givenNumbers, inputNumbers));
@@ -19,7 +19,7 @@ public class StrikeTest {
     void twoStrike() {
         NumberBaseball numberBaseball = new NumberBaseball();
 
-        int[] givenNumbers = new int[]{ 7, 1, 3 };
+        Integer[] givenNumbers = new Integer[]{ 7, 1, 3 };
         int[] inputNumbers = new int[]{ 7, 5, 3 };
 
         assertEquals("2스트라이크", numberBaseball.judge(givenNumbers, inputNumbers));
@@ -29,7 +29,7 @@ public class StrikeTest {
     void oneStrike() {
         NumberBaseball numberBaseball = new NumberBaseball();
 
-        int[] givenNumbers = new int[]{ 7, 1, 3 };
+        Integer[] givenNumbers = new Integer[]{ 7, 1, 3 };
         int[] inputNumbers = new int[]{ 9, 5, 3 };
 
         assertEquals("1스트라이크", numberBaseball.judge(givenNumbers, inputNumbers));
