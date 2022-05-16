@@ -1,5 +1,7 @@
 package study.baseball.service;
 
+import study.baseball.model.dto.ResultDto;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,26 +12,29 @@ public class NumberBaseball {
         int strikeCount = 0;
 
         for (int i = 0; i < givenNumbers.length; i++) {
-            ballCount += ball(givenNumbers, inputNumbers[i]);
-            strikeCount += strike(givenNumbers[i], inputNumbers[i]);
+            if (isStrike(givenNumbers[i], inputNumbers[i])) {
+                strikeCount++;
+                continue;
+            }
+
+            if (isBall(givenNumbers, inputNumbers[i])) {
+                ballCount++;
+            }
         }
 
-        return ballCount + "볼"
-                + strikeCount + "스트라이크";
+        return ResultDto.builder()
+                .ballCount(ballCount)
+                .strikeCount(strikeCount)
+                .build()
+                .toString();
     }
 
-    private int ball(Integer[] givenNumbers, int inputNumber) {
+    private Boolean isBall(Integer[] givenNumbers, int inputNumber) {
         Set<Integer> givenNumberSet = new HashSet<>(Arrays.asList(givenNumbers));
-        if (givenNumberSet.contains(inputNumber)) {
-            return 1;
-        }
-        return 0;
+        return givenNumberSet.contains(inputNumber);
     }
 
-    private int strike(int givenNumber, int inputNumber) {
-        if (givenNumber == inputNumber) {
-            return 1;
-        }
-        return 0;
+    private Boolean isStrike(int givenNumber, int inputNumber) {
+        return givenNumber == inputNumber;
     }
 }
