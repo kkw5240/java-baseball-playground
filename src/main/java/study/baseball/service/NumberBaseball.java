@@ -2,6 +2,7 @@ package study.baseball.service;
 
 import study.baseball.model.InningData;
 import study.baseball.model.ResultDto;
+import study.baseball.view.InputView;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,10 +13,10 @@ public class NumberBaseball {
 
     private Boolean isPlaying;
 
-    public String judge(Integer[] givenNumbers, Integer[] inputNumbers) {
     public String judge(InningData inningData) {
         return this.judge(inningData.getHomeData(), inningData.getAwayData());
     }
+
     public String judge(Integer[] givenNumbers, Integer[] inputNumbers) {
         int ballCount = 0;
         int strikeCount = 0;
