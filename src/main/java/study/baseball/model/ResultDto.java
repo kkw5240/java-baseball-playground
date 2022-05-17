@@ -1,19 +1,22 @@
 package study.baseball.model;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class ResultDto {
-    private final Integer ballCount;
-    private final Integer strikeCount;
+    private final int ballCount;
+    private final int strikeCount;
 
     public static class Builder {
-        private Integer ballCount;
-        private Integer strikeCount;
+        private int ballCount;
+        private int strikeCount;
 
-        public Builder ballCount(Integer ballCount) {
+        public Builder ballCount(int ballCount) {
             this.ballCount = ballCount;
             return this;
         }
 
-        public Builder strikeCount(Integer strikeCount) {
+        public Builder strikeCount(int strikeCount) {
             this.strikeCount = strikeCount;
             return this;
         }
@@ -27,40 +30,36 @@ public class ResultDto {
         return new Builder();
     }
 
-    @Override
-    public String toString() {
-        if (ballCount == 0 && strikeCount == 0) {
-            return "낫싱";
-        }
-
-        return printBallCount() +
-                printSpace() +
-                printStrikeCount();
-    }
-
-    private String printBallCount() {
-        if (ballCount == 0) {
-            return "";
-        }
-        return ballCount + "볼";
-    }
-
-    private String printSpace() {
-        if (ballCount > 0 && strikeCount > 0) {
-            return " ";
-        }
-        return "";
-    }
-
-    private String printStrikeCount() {
-        if (strikeCount == 0) {
-            return "";
-        }
-        return strikeCount + "스트라이크";
-    }
-
     private ResultDto(Integer ballCount, Integer strikeCount) {
         this.ballCount = ballCount;
         this.strikeCount = strikeCount;
+    }
+
+    public Integer getBallCount() {
+        return ballCount;
+    }
+
+    public Integer getStrikeCount() {
+        return strikeCount;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof ResultDto)) {
+            return false;
+        }
+
+        ResultDto ResultDto = (ResultDto) obj;
+
+        return ResultDto.hashCode() == this.hashCode();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ballCount, strikeCount);
     }
 }
