@@ -52,24 +52,6 @@ public class NumberBaseball {
         return this.isPlaying;
     }
 
-    public void inning(int[] awayData) {
-        try {
-            InputView inputView = new InputView();
-            InningData inningData = getInningData(
-                    inputView.getHomeData(),
-                    awayData
-            );
-
-            ResultDto result = this.judge(inningData);
-            //System.out.println(result);
-            ResultView resultView = new ResultView(result);
-            resultView.show();
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
     public InningData getInningData(int[] homeData, int[] awayData) {
         return InningData.builder()
                 .homeData(homeData)
@@ -104,4 +86,31 @@ public class NumberBaseball {
 
         return awayData;
     }
+
+    public void inning(int[] awayData) {
+        try {
+            InputView inputView = new InputView();
+
+            InningData inningData = getInningData(
+                    new InputView().getHomeData(),
+                    awayData
+            );
+
+            ResultDto result = this.judge(inningData);
+
+            ResultView resultView = new ResultView(result);
+            resultView.show();
+            if (result.getStrikeCount() == 3) {
+                if (inputView.isContinue()) {
+                    play();
+                    return;
+                }
+                isPlaying = false;
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
