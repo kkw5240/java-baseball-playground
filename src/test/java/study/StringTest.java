@@ -38,11 +38,9 @@ public class StringTest {
 
         assertThat(given.charAt(1)).isEqualTo('b');
 
-        assertThatThrownBy(() -> {
-            given.charAt(4);
-
-        }).isInstanceOf(
-                StringIndexOutOfBoundsException.class
-        ).hasMessageContaining("String index out of range");
+        assertThatThrownBy(() -> given.charAt(4))
+                .isInstanceOf(
+                        StringIndexOutOfBoundsException.class
+                ).hasMessageContaining("String index out of range");
     }
 }
