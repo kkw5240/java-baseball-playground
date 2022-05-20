@@ -87,30 +87,24 @@ public class NumberBaseball {
         return awayData;
     }
 
-    public void inning(int[] awayData) {
-        try {
-            InputView inputView = new InputView();
+    public void inning(int[] awayData) throws RuntimeException {
+        InningData inningData = getInningData(
+                new InputView().getHomeData(),
+                awayData
+        );
 
-            InningData inningData = getInningData(
-                    new InputView().getHomeData(),
-                    awayData
-            );
+        ResultDto result = this.judge(inningData);
 
-            ResultDto result = this.judge(inningData);
-
-            ResultView resultView = new ResultView(result);
-            resultView.show();
-            if (result.getStrikeCount() == 3) {
-                if (inputView.isContinue()) {
-                    play();
-                    return;
-                }
-                isPlaying = false;
+        ResultView resultView = new ResultView(result);
+        resultView.show();
+        if (result.getStrikeCount() == 3) {
+            if (new InputView().isContinue()) {
+                play();
+                return;
             }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            isPlaying = false;
         }
+
     }
 
 }
